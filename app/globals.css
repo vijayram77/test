@@ -2,20 +2,53 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@font-face{
+  font-family: JaFont;
+  src : url('./fonts/jafont.ttf')
+}
+@font-face{
+  font-family: Nunito;
+  src : url('./fonts/NunitoSans.ttf')
+}
+@font-face{
+  font-family: Gilroy;
+  src : url('./fonts/Gilroy-Regular.ttf')
+}
+@font-face{
+  font-family: LED;
+  src : url('./fonts/LEDCalculator.ttf')
+}
+@font-face{
+  font-family: Degular;
+  src : url('./fonts/Degular.ttf')
+}
+*{
+  font-family: JaFont;
+}
+.social-first:hover>.icon{
+  animation: rotate ease-in-out 0.5s ;
+}
+.resume:hover>.arrow-icon{
+  transform: scale(1.4) ;
+}
+.native:hover>.location{
+  transform: scale(1.2) ;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+.project:hover .icon{
+  margin-right: 0vw;
+} 
+@keyframes rotate{
+  0%{
+    transform: rotate(0deg);
   }
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  30%{
+    transform: rotate(30deg);
+  }
+  60%{
+    transform: rotate(-30deg);
+  }
+  100%{
+    transform: rotate(0deg);
+  }
 }
