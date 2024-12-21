@@ -56,8 +56,8 @@ const Content = ({ setCurrent, tag, title, subtitle, img, scrollId, data_ID, ind
             <div className="flex w-full items-center flex-wrap gap-4 px-2">
                 {
                     tag == "Future Enhancements" &&
-                    <h1 className="text-zinc-400 tracking-tighter text-lg w-full">
-                       here is the live link for the project <a className="text-zinc-100 underline px-4" href={live} target="blank">Live Demo</a>
+                    <h1 className="text-zinc-400 tracking-tighter text-lg w-full flex flex-wrap">
+                       <span>here is the live link for the project</span> <a className="text-zinc-100 underline px-2 whitespace-nowrap" href={live} target="blank">Live Demo</a>
                     </h1>
                 }
             </div>

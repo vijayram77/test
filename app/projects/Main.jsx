@@ -196,7 +196,6 @@ export default function Main({ id }) {
 
 
   const handleViewport = (index) => {
-    console.log(index);
     gsap.to(".li", {
       color: "#a1a1aa"
     })
