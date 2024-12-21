@@ -13,7 +13,7 @@ const Project = ({ title, desc, href, src, bgColor, date, tools }) => {
     const parentRef = useRef();
 
     return (
-        <Link href={`projects/${href}`} className="hover:scale-[0.99] transition-all ease duration-500">
+        <Link href={`projects/${href}`} className="hover:scale-[0.99] transition-all ease duration-500 ">
             <div
                 ref={parentRef}
                 className="bg-[#101010] project cursor-pointer p-2 transition-all ease duration-500 lg:w-[600px] w-[90vw] mx-auto rounded-3xl shadow-lg overflow-hidden border border-zinc-800 relative"
@@ -49,7 +49,7 @@ const Project = ({ title, desc, href, src, bgColor, date, tools }) => {
 
                         }
                     </div>
-                    <div className="px-[5vw] pt-[2vh] pb-0 rounded-b-lg flex flex-col gap-4">
+                    <div className="px-[5vw] pt-[4vh] pb-0 rounded-b-lg flex flex-col gap-4 relative bottom-0 image transition-all ease-out duration-500">
                         <div className="bg-black rounded-md overflow-hidden">
                             <div className="relative">
                                 <Image
@@ -57,7 +57,7 @@ const Project = ({ title, desc, href, src, bgColor, date, tools }) => {
                                     height={1000}
                                     src={src}
                                     alt="Project Thumbnail"
-                                    className="w-full h-fit object-cover"
+                                    className="w-full h-fit object-cover "
                                 />
                             </div>
                         </div>

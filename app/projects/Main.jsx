@@ -83,6 +83,7 @@ export default function Main({ id }) {
           subtitle:
             "We aim to expand our offerings with new job roles, an ever-growing library of curated resources, and innovative interactive features to enhance user engagement and ensure scalability for the future.",
           image: undefined,
+          live : "https://vjscareerpath.vercel.app/"
         },
       ]
     },
@@ -144,7 +145,8 @@ export default function Main({ id }) {
           title: "Adapting to Your Needs.",
           subtitle:
             "Plans to introduce advanced features like predictive analysis, savings goals, and personalized financial advice to enhance user experience.",
-          image: undefined, // Replace with an image path if applicable
+          image: undefined, 
+          live : "https://expense-tracker-vj.web.app/"
         },
       ]
 
@@ -255,7 +257,7 @@ export default function Main({ id }) {
           {
             Data[data_id].categories
               .map((section, index) => (
-                <Content setCurrent={handleViewport} key={index} index={index} data_ID={data_id} scrollId={`content${index}`} tag={section.tag} title={section.title} subtitle={section.subtitle} img={section.image} tools={tools} />
+                <Content setCurrent={handleViewport} key={index} index={index} data_ID={data_id} scrollId={`content${index}`} tag={section.tag} live={section.live} title={section.title} subtitle={section.subtitle} img={section.image} tools={tools} />
               ))
           }
         </div>

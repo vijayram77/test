@@ -4,12 +4,12 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import ToolTip from "@/app/components/ToolTip";
 
-const Content = ({ setCurrent, tag, title, subtitle, img, scrollId, data_ID ,index , tools}) => {
+const Content = ({ setCurrent, tag, title, subtitle, img, scrollId, data_ID, index, tools ,live }) => {
     const ref = useRef();
     return (
         <motion.div
-        viewport={{margin : "-300px"}}
-            onViewportEnter={() => {setCurrent(index)}
+            viewport={{ margin: "-300px" }}
+            onViewportEnter={() => { setCurrent(index) }
             }
             ref={ref}
             id={scrollId}
@@ -23,7 +23,7 @@ const Content = ({ setCurrent, tag, title, subtitle, img, scrollId, data_ID ,ind
                 <h1 className="text-zinc-400 font-bold uppercase text-sm backdrop-blur px-2 py-1 rounded-full tracking-tighter">
                     {tag}
                 </h1>
-            </div> 
+            </div>
             <h1 className="text-4xl tracking-tighter font-semibold [text-shadow:_0px_0px_30px_rgb(255_255_255_/_50%)]">
                 {title}
             </h1>
@@ -42,16 +42,24 @@ const Content = ({ setCurrent, tag, title, subtitle, img, scrollId, data_ID ,ind
                 </div>
             )}
             <div className="flex w-full items-center flex-wrap gap-4 pt-12 px-2">
-            {
-                tag == "Tech Stack" &&
-                tools.map((item , index) => (
-                            <div key={index} style={{ backgroundColor: item.backgroundColor == "#ffffff" ? item.backgroundColor : `${item.backgroundColor}4D` }} className='md:w-[70px] tooltipParent w-[50px] h-[50px] relative rounded-2xl md:h-[70px] p-3 transition-all ease-out duration-300 hover:scale-110 cursor-pointer'>
-                                <Image width={100} height={100} className='w-full h-full' src={item.imageUrl} alt="" />
-                                <ToolTip value={item.title} direction="up" />
-                            </div>
+                {
+                    tag == "Tech Stack" &&
+                    tools.map((item, index) => (
+                        <div key={index} style={{ backgroundColor: item.backgroundColor == "#ffffff" ? item.backgroundColor : `${item.backgroundColor}4D` }} className='md:w-[70px] tooltipParent w-[50px] h-[50px] relative rounded-2xl md:h-[70px] p-3 transition-all ease-out duration-300 hover:scale-110 cursor-pointer'>
+                            <Image width={100} height={100} className='w-full h-full' src={item.imageUrl} alt="" />
+                            <ToolTip value={item.title} direction="up" />
+                        </div>
 
-                ))
-            }
+                    ))
+                }
+            </div>
+            <div className="flex w-full items-center flex-wrap gap-4 px-2">
+                {
+                    tag == "Future Enhancements" &&
+                    <h1 className="text-zinc-400 tracking-tighter text-lg w-full">
+                       here is the live link for the project <a className="text-zinc-100 underline px-4" href={live} target="blank">Live Demo</a>
+                    </h1>
+                }
             </div>
         </motion.div>
     );

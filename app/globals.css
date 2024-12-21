@@ -25,6 +25,9 @@
 *{
   font-family: JaFont;
 }
+.project:hover .image{
+  transform: translateY(-10px);
+}
 .social-first:hover>.icon{
   animation: rotate ease-in-out 0.5s ;
 }
