@@ -1,38 +1,19 @@
 "use client";
 import { useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/all";
 import Image from "next/image";
-import { useGSAP } from "@gsap/react";
-import { RiReactjsFill } from "react-icons/ri";
-import { TbBrandNextjs } from "react-icons/tb";
-import { SiMongodb } from "react-icons/si";
-import { SiExpress } from "react-icons/si";
-import { RiTailwindCssFill } from "react-icons/ri";
+import { motion } from "framer-motion";
+import ToolTip from "@/app/components/ToolTip";
 
-const Content = ({ setCurrent, tag, title, subtitle, img, scrollId, data_ID , index }) => {
-    gsap.registerPlugin(ScrollTrigger);
+const Content = ({ setCurrent, tag, title, subtitle, img, scrollId, data_ID ,index , tools}) => {
     const ref = useRef();
-
-    useGSAP(() => {
-        ScrollTrigger.create({
-            trigger: ref.current,
-            start: "top 100%",
-            end: "-10% top",
-            scrub: 1,
-            id : index,
-            // markers : true ,
-            onEnter: () => setCurrent(index),
-            onEnterBack: () => setCurrent(index),
-        });
-
-    });
-
     return (
-        <div
+        <motion.div
+        viewport={{margin : "-300px"}}
+            onViewportEnter={() => {setCurrent(index)}
+            }
             ref={ref}
             id={scrollId}
-            className="py-16 border-b border-zinc-800 last:border-none fade-in flex flex-col items-start justify-center"
+            className="py-16 border-b border-zinc-800 px-2 last:border-none fade-in flex flex-col items-start justify-center"
         >
             <div className="relative z-[9999] py-[5vh] flex items-center ">
                 <div className="w-6 h-6 flex justify-center items-center relative">
@@ -42,7 +23,7 @@ const Content = ({ setCurrent, tag, title, subtitle, img, scrollId, data_ID , in
                 <h1 className="text-zinc-400 font-bold uppercase text-sm backdrop-blur px-2 py-1 rounded-full tracking-tighter">
                     {tag}
                 </h1>
-            </div>
+            </div> 
             <h1 className="text-4xl tracking-tighter font-semibold [text-shadow:_0px_0px_30px_rgb(255_255_255_/_50%)]">
                 {title}
             </h1>
@@ -60,38 +41,19 @@ const Content = ({ setCurrent, tag, title, subtitle, img, scrollId, data_ID , in
                     />
                 </div>
             )}
+            <div className="flex w-full items-center flex-wrap gap-4 pt-12 px-2">
             {
-                tag == "Tech Stack" ?
-                    data_ID == 0 ?
-                    <div className="pt-8 flex justify-start gap-4 items-center flex-wrap">
-                        <div className="p-3 bg-gradient-to-b from-zinc-950 to-zinc-700 via-zinc-900 rounded-3xl">
-                            <RiReactjsFill className="text-zinc-300 md:text-5xl text-4xl" />
-                        </div>
-                        <div className="p-3 bg-gradient-to-b from-zinc-950 to-zinc-700 via-zinc-900 rounded-3xl">
-                            <TbBrandNextjs className="text-zinc-300 md:text-5xl text-4xl" />
-                        </div>
-                        <div className="p-3 bg-gradient-to-b from-zinc-950 to-zinc-700 via-zinc-900 rounded-3xl">
-                            <SiMongodb className="text-zinc-300 md:text-5xl text-4xl" />
-                        </div>
-                        <div className="p-3 bg-gradient-to-b from-zinc-950 to-zinc-700 via-zinc-900 rounded-3xl">
-                            <SiExpress className="text-zinc-300 md:text-5xl text-4xl" />
-                        </div>
-                        <div className="p-3 bg-gradient-to-b from-zinc-950 to-zinc-700 via-zinc-900 rounded-3xl">
-                            <RiTailwindCssFill className="text-zinc-300 md:text-5xl text-4xl" />
-                        </div>
-                    </div> :
-                    <div className="pt-8 flex justify-start gap-4 items-center flex-wrap">
-                        <div className="p-3 bg-gradient-to-b from-zinc-950 to-zinc-700 via-zinc-900 rounded-3xl">
-                            <RiReactjsFill className="text-zinc-300 md:text-5xl text-4xl" />
-                        </div>
-                        <div className="p-3 bg-gradient-to-b from-zinc-950 to-zinc-700 via-zinc-900 rounded-3xl">
-                            <RiTailwindCssFill className="text-zinc-300 md:text-5xl text-4xl" />
-                        </div>
-                    </div>
-                    :null
+                tag == "Tech Stack" &&
+                tools.map((item , index) => (
+                            <div key={index} style={{ backgroundColor: item.backgroundColor == "#ffffff" ? item.backgroundColor : `${item.backgroundColor}4D` }} className='md:w-[70px] tooltipParent w-[50px] h-[50px] relative rounded-2xl md:h-[70px] p-3 transition-all ease-out duration-300 hover:scale-110 cursor-pointer'>
+                                <Image width={100} height={100} className='w-full h-full' src={item.imageUrl} alt="" />
+                                <ToolTip value={item.title} direction="up" />
+                            </div>
 
+                ))
             }
-        </div>
+            </div>
+        </motion.div>
     );
 };
 

@@ -8,6 +8,7 @@ import Logo from './components/Logo'
 import Socials from './components/Socials'
 import { useGSAP } from '@gsap/react'
 import gsap, { Power4 } from 'gsap'
+import MyStack from './Stack/MyStack'
 
 const page = () => {
   const lenisRef = useRef(null); 
@@ -39,7 +40,7 @@ const page = () => {
       ease: Power4
     })
 
-  })
+  },[])
   const handleClick = (element, item) => {
     if(lenisRef.current){
       lenisRef.current.scrollTo(`#${item}`)
@@ -54,9 +55,9 @@ const page = () => {
       {/* NavBar Start */}
       <div className='fixed z-[99999] left-1/2 -translate-x-1/2 w-full py-[5vh] px-[2vmax] flex justify-between items-center'>
         <Logo />
-        <div ref={ref} className='w-fit relative hidden lg:flex justify-center items-center px-1 py-1 gap-2 bg-transparent backdrop-blur-sm border border-zinc-700 rounded-full '>
+        <div ref={ref} className='w-fit relative hidden lg:flex justify-center items-center px-1 py-1 gap-2 backdrop-blur-sm border border-zinc-700 bg-zinc-900/40 rounded-full '>
           {
-            ["home", "projects", "stack", "experience", "info"].map((item, index) =>
+            ["home",  "stack","projects", "experience", "info"].map((item, index) =>
               (
               <h6 onClick={(e) => handleClick(e.currentTarget, item)} className=' cursor-pointer relative text-zinc-300 z-[999] px-4 py-3 transition-all ease-in-out duration-400 uppercase text-sm font-semibold tracking-tighter rounded-full' key={index}>{item}</h6>
             )
@@ -77,6 +78,7 @@ const page = () => {
       {/* NavBar End */}
 
       <Landing />
+      <MyStack />
       <Projects />
     </div>
   )

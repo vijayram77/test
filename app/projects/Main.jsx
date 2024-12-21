@@ -17,10 +17,20 @@ import Link from 'next/link';
 import Lenis from 'lenis';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
-
+import nextjs from './assets/nextjs.svg'
+import express from './assets/express.svg'
+import react from './assets/react.svg'
+import tailwind from './assets/tailwind.svg'
+import mongo from './assets/mongodb.svg'
+import { useRouter } from 'next/navigation';
 
 export default function Main({ id }) {
-  const lenisRef = useRef(null); 
+  const router = useRouter();
+
+  const handleBackClick = () => {
+    router.back();
+  };
+  const lenisRef = useRef(null);
   const data_id = id == "CareerPath" ? 0 : 1
   const Data = [
     {
@@ -65,6 +75,7 @@ export default function Main({ id }) {
           subtitle:
             "Built with cutting-edge technologies like Next.js for a fast and responsive frontend, GSAP for seamless animations, Tailwind CSS for sleek styling, and Node.js integrated with AI-powered APIs to deliver a robust and scalable backend.",
           image: undefined,
+
         },
         {
           tag: "Future Enhancements",
@@ -124,6 +135,7 @@ export default function Main({ id }) {
           subtitle:
             "Built with React.js for a dynamic frontend, Tailwind CSS for a visually appealing design, and utilizing Local Storage for efficient data management.",
           image: undefined,
+
         }
         ,
 
@@ -139,32 +151,78 @@ export default function Main({ id }) {
     }
   ]
 
-  
+  const tools = data_id == 0 ? [
+    {
+      title: "React JS",
+      imageUrl: react,
+      backgroundColor: "#61DAFB",
+    },
+    {
+      title: "Next JS",
+      imageUrl: nextjs,
+      backgroundColor: "#ffffff",
+    },
+    {
+      title: "Express",
+      imageUrl: express,
+      backgroundColor: "#ffffff",
+    },
+    {
+      title: "MongoDB",
+      imageUrl: mongo,
+      backgroundColor: "#47A248",
+    },
+    {
+      title: "Tailwind CSS",
+      imageUrl: tailwind,
+      backgroundColor: "#38B2AC",
+    },
+  ] :
+    [
+      {
+        title: "React JS",
+        imageUrl: react,
+        backgroundColor: "#61DAFB",
+      },
+      {
+        title: "Tailwind CSS",
+        imageUrl: tailwind,
+        backgroundColor: "#38B2AC",
+      },
+    ]
+
+
+
   const handleViewport = (index) => {
     console.log(index);
-    gsap.to(".li",{
-      color : "#a1a1aa"
+    gsap.to(".li", {
+      color: "#a1a1aa"
     })
-    gsap.to(`#li${index}`,{
-      color : "white"
+    gsap.to(`#li${index}`, {
+      color: "white"
     })
-    
+
   }
 
   useEffect(() => {
     const lenis = new Lenis();
-    lenisRef.current = lenis
-    lenis.on('scroll', ScrollTrigger.update)
-
+    lenisRef.current = lenis;
+    gsap.registerPlugin(ScrollTrigger);
+    lenis.on("scroll", () => {
+      ScrollTrigger.update();
+    });
     gsap.ticker.add((time) => {
-      lenis.raf(time * 1000)
-    })
-    gsap.ticker.lagSmoothing(0)
-  });
-
+      lenis.raf(time * 1000);
+    });
+    gsap.ticker.lagSmoothing(0);
+    return () => {
+      gsap.ticker.remove(lenis.raf);
+      lenis.destroy();
+    };
+  }, []);
   const handleScroll = (scrollId) => {
-    if(lenisRef.current){
-      lenisRef.current.scrollTo(`#${scrollId}`,{duration : 2})
+    if (lenisRef.current) {
+      lenisRef.current.scrollTo(`#${scrollId}`, { duration: 2 })
     }
   }
   return (
@@ -175,15 +233,15 @@ export default function Main({ id }) {
         <div className='absolute w-[120vw] h-[85vh] rounded-b-3xl left-1/2 -translate-x-1/2 top-0 bg-gradient-to-r from-[#202020] via-transparent to-[#202020] blur-3xl'></div>
         {/* Left Section */}
         <div className="fixed z-[99999] top-6 left-6">
-          <Link href="../" className="flex items-center gap-2 px-4 py-2 overflow-hidden bg-zinc-900/80 rounded-full transition-all ease-out duration-500">
+          <button onClick={handleBackClick} className="flex items-center gap-2 px-4 py-2 overflow-hidden hover:gap-4 bg-zinc-900/70 border border-zinc-700/80 rounded-full transition-all ease-out duration-500">
             <IoMdArrowBack className='text-xl text-zinc-300' />
             <span>Back</span>
-          </Link>
+          </button>
         </div>
 
         {/* Center Section */}
         <div className="relative flex flex-col items-center justify-start mx-auto lg:w-[65vw] px-4">
-          <h1 style={{ background: `linear-gradient(to bottom, #ffffff, ${Data[data_id].textBg_to})`, backgroundClip: 'text' }} className="text-5xl mb-1  text-transparent font-semibold [text-shadow:_0px_0px_40px_rgb(255_255_255_/_50%)]">{Data[data_id].Title}</h1>
+          <h1 className="text-5xl mb-1  text-transparent font-semibold [text-shadow:_0px_0px_40px_rgb(255_255_255_/_50%)] text-zinc-300">{Data[data_id].Title}</h1>
           <p className="text-zinc-400 text-lg mb-6">{Data[data_id].date}</p>
           <div className="relative w-full">
             <Image
@@ -197,7 +255,7 @@ export default function Main({ id }) {
           {
             Data[data_id].categories
               .map((section, index) => (
-                <Content setCurrent={handleViewport} key={index} index={index} data_ID={data_id} scrollId={`content${index}`} tag={section.tag} title={section.title} subtitle={section.subtitle} img={section.image} />
+                <Content setCurrent={handleViewport} key={index} index={index} data_ID={data_id} scrollId={`content${index}`} tag={section.tag} title={section.title} subtitle={section.subtitle} img={section.image} tools={tools} />
               ))
           }
         </div>
@@ -208,7 +266,7 @@ export default function Main({ id }) {
             <h2 className="text-xl font-semibold mb-4 font-[Nunito]">Contents</h2>
             <ul className="">
               {Data[data_id].categories.map((item, index) => (
-                <li id={`li${index}`} onClick={() => { handleScroll(`content${index}`) }} key={index} className={` text-zinc-400 li text-sm font-[Nunito] cursor-pointer tracking-tighter py-1`}>
+                <li id={`li${index}`} onClick={() => { handleScroll(`content${index}`) }} key={index} className={`${index == 0 ? "text-white" : "text-[#a1a1aa]"}  li text-sm font-[Nunito] cursor-pointer tracking-tighter py-1`}>
                   {item.tag}
                 </li>
               ))}

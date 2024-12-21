@@ -36,7 +36,7 @@ const Logo = () => {
         })
   }
   return (
-    <div className='lg:w-[280px] cursor-default '>
+    <div className='lg:w-[280px] '>
       <h1 onMouseEnter={animate} className='font-semibold w-[50px] flex justify-center select-none font-[Gilroy] text-2xl cursor-pointer text-zinc-300 tracking-tighter transition-all ease-in duration-500 vijayram'>
         <span ref={ref1} className='inline-block'>V</span>
         <span ref={ref2} className='inline-block'>J</span>

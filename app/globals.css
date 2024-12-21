@@ -34,7 +34,9 @@
 .native:hover>.location{
   transform: scale(1.2) ;
 }
-
+.tooltipParent:hover>.tooltip{
+  opacity: 1;
+}
 .project:hover .icon{
   margin-right: 0vw;
 } 
