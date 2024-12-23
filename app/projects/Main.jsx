@@ -23,6 +23,8 @@ import react from './assets/react.svg'
 import tailwind from './assets/tailwind.svg'
 import mongo from './assets/mongodb.svg'
 import { useRouter } from 'next/navigation';
+import { FiArrowUpRight } from "react-icons/fi";
+import { motion } from 'framer-motion';
 
 export default function Main({ id }) {
   const router = useRouter();
@@ -40,6 +42,7 @@ export default function Main({ id }) {
       bg_from: "#1c5274",
       bg_via: "#11344a",
       textBg_to: "#8cbddb",
+      live : "https://vjscareerpath.vercel.app/",
       categories: [
         {
           tag: "Overview",
@@ -83,7 +86,6 @@ export default function Main({ id }) {
           subtitle:
             "We aim to expand our offerings with new job roles, an ever-growing library of curated resources, and innovative interactive features to enhance user engagement and ensure scalability for the future.",
           image: undefined,
-          live : "https://vjscareerpath.vercel.app/"
         },
       ]
     },
@@ -94,6 +96,7 @@ export default function Main({ id }) {
       bg_from: "#2C2443",
       bg_via: "#382869",
       textBg_to: "#868193",
+      live : "https://expense-tracker-vj.web.app/",
       categories: [
         {
           tag: "Overview",
@@ -146,7 +149,6 @@ export default function Main({ id }) {
           subtitle:
             "Plans to introduce advanced features like predictive analysis, savings goals, and personalized financial advice to enhance user experience.",
           image: undefined, 
-          live : "https://expense-tracker-vj.web.app/"
         },
       ]
 
@@ -242,8 +244,15 @@ export default function Main({ id }) {
 
         {/* Center Section */}
         <div className="relative flex flex-col items-center justify-start mx-auto lg:w-[65vw] px-4">
-          <h1 className="text-5xl mb-1  text-transparent font-semibold [text-shadow:_0px_0px_40px_rgb(255_255_255_/_50%)] text-zinc-300">{Data[data_id].Title}</h1>
-          <p className="text-zinc-400 text-lg mb-6">{Data[data_id].date}</p>
+          <div className='flex justify-between items-start w-full'>
+            <div className=''>
+              <motion.div onViewportEnter={() => { gsap.to(".project-title",{top : "0px"})}} viewport={{once : true}}  className='overflow-hidden'>
+            <h1 className="text-[7vmax] relative top-[200px] project-title leading-none flex flex-col justify-center items-start tracking-tighter text-transparent font-semibold [text-shadow:_0px_0px_40px_rgb(255_255_255_/_20%)] text-zinc-200">{Data[data_id].Title}</h1>
+              </motion.div>
+            <p className="text-zinc-400 leading-none text-lg mb-6 mt-2 pl-4">{Data[data_id].date}</p>
+            </div>
+            <motion.a whileHover={{scale: [1,1.1,0.9,1]}} href={Data[data_id].live} target='blank'><FiArrowUpRight className='text-[7vmax] text-zinc-200 hover:text-[#000000] cursor-pointer rounded-full hover:bg-zinc-300 transition-all ease-out duration-500 p-[1vw]' /></motion.a>
+          </div>
           <div className="relative w-full">
             <Image
               width={1536}
@@ -256,7 +265,7 @@ export default function Main({ id }) {
           {
             Data[data_id].categories
               .map((section, index) => (
-                <Content setCurrent={handleViewport} key={index} index={index} data_ID={data_id} scrollId={`content${index}`} tag={section.tag} live={section.live} title={section.title} subtitle={section.subtitle} img={section.image} tools={tools} />
+                <Content setCurrent={handleViewport} key={index} index={index} data_ID={data_id} scrollId={`content${index}`} tag={section.tag} title={section.title} subtitle={section.subtitle} img={section.image} tools={tools} />
               ))
           }
         </div>

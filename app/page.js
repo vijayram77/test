@@ -57,7 +57,7 @@ const page = () => {
         <Logo />
         <div ref={ref} className='w-fit relative hidden lg:flex justify-center items-center px-1 py-1 gap-2 backdrop-blur-sm border border-zinc-700 bg-zinc-900/40 rounded-full '>
           {
-            ["home",  "stack","projects", "experience", "info"].map((item, index) =>
+            ["home",  "stack","projects"].map((item, index) =>
               (
               <h6 onClick={(e) => handleClick(e.currentTarget, item)} className=' cursor-pointer relative text-zinc-300 z-[999] px-4 py-3 transition-all ease-in-out duration-400 uppercase text-sm font-semibold tracking-tighter rounded-full' key={index}>{item}</h6>
             )
