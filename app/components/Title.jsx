@@ -1,31 +1,19 @@
 "use client"
-import React, { useRef } from 'react'
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/all";
-import { useGSAP } from "@gsap/react";
+import React from 'react'
+import { motion } from 'framer-motion';
 
-const Title = ({ title }) => {
-  const ref = useRef()
-  gsap.registerPlugin(ScrollTrigger);
-  useGSAP(() => {
-    gsap.from(ref.current, {
-      x: -600,
-      duration: 1,
-      scrollTrigger: {
-        trigger: ref.current,
-        start: "top 90%"
-      }
-    })
-  })
+const ProjectsTitle = ({title}) => {
+
   return (
-    <div ref={ref} className='overflow-hidden projectTitle w-full select-none flex gap-[1vw] py-[2vh] '>
-        <h1
-          className="text-5xl md:text-7xl font-[Degular] font-bold p-[0.3vw] text-zinc-300 tracking-tight whitespace-nowrap"
-        >
-          {title}
-        </h1>
+    <div className=' w-full mb-[5vh] select-none flex gap-[1vmax] '>
+          
+          {
+            title.split(" ").map((item , index) => (
+              <motion.h1 key={index} initial={{y : 100 , opacity : 0}} whileInView={{y : 0 , opacity : 1}} viewport={{once : true }} transition={{ duration : 0.5 , delay : index*0.2 }} className='text-5xl md:text-7xl font-[Gilroy] pr-[0.2vmax] py-2 font-bold inline-block bg-gradient-to-b from-zinc-300 to-zinc-400 capitalize text-transparent bg-clip-text tracking-tighter whitespace-nowrap'>{item}</motion.h1>
+            ))
+          }
     </div>
   )
 }
 
-export default Title
+export default ProjectsTitle

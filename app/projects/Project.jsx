@@ -42,7 +42,7 @@ const Project = ({ title, desc, href, src, bgColor, date, tools }) => {
                     <div className="w-full flex gap-4 flex-wrap items-center px-6 pb-4">
                         {
                             tools.map((item, index) => (
-                                <div key={index} style={{ backgroundColor: item.backgroundColor == "#ffffff" ? item.backgroundColor : `${item.backgroundColor}4D` }} className='min-w-[40px] relative rounded-2xl h-[40px] p-2'>
+                                <div key={index} style={{ backgroundColor: item.backgroundColor == "#ffffff" ? "#ffffffcc" : `${item.backgroundColor}4D` }} className='min-w-[40px] relative rounded-2xl h-[40px] p-2'>
                                     <Image width={100} height={100} className='w-full h-full' src={item.imageUrl} alt="" />
                                 </div>
                             ))

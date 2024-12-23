@@ -36,7 +36,7 @@ const Projects = () => {
   ]
 
   return (
-    <div id='projects' className="min-h-screen z-[9999] relative w-full pt-[10vh] px-[5vw]">
+    <div id='projects' className="min-h-screen z-[9999] relative w-full pt-[15vh] px-[5vw]">
       <Title title="Recent Projects" />
       <div className="flex gap-8 justify-center items-center xl:flex-row flex-col py-[5vh]">
         <Project

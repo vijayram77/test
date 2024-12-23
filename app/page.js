@@ -68,7 +68,7 @@ const page = () => {
             <div
               className={`bg-zinc-300 z-[9999] left-1/2 -translate-x-1/2 w-[20px] transition-all ease-out duration-500 h-[2px] top-[-7px] absolute rounded-full`}
             >
-              <div className='absolute w-[150%] h-[250%] top-[-5px] bg-zinc-300 left-1/2 -translate-x-1/2 rounded-full blur-md'></div>
+              <div className='absolute w-[150%] h-[250%] top-[-5px] bg-zinc-50 left-1/2 -translate-x-1/2 rounded-full blur-md'></div>
             </div>
           </div>
 

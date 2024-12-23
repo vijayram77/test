@@ -17,7 +17,7 @@ const Socials = () => {
   })
   return (
     <div className='parent flex gap-2 items-center justify-center lg:w-[280px]'>
-      <a href='mailto:vijayyathagiri@gmail.com' className='social tooltipParent social-first social-first relative top-[-25vh] p-2 inline-block cursor-pointer transition-all ease-in duration-400 hover:scale-105 bg-zinc-700 rounded-full'>
+      <a href='mailto:vijayyathagiri@gmail.com' className='social shadow-[0_0_30px_rgba(255,255,255,0.4)] tooltipParent social-first social-first relative top-[-25vh] p-2 inline-block cursor-pointer transition-all ease-in duration-400 hover:scale-105 bg-zinc-700 border-zinc-800 border rounded-full'>
         <RiAtLine
           size={24}
           color="#ffffff"
@@ -44,7 +44,7 @@ const Socials = () => {
 
 
       </a>
-      <a href="" className='resume tooltipParent relative top-[-25vh] social flex justify-center items-center gap-2 py-2 px-4 rounded-full transition-all ease-out duration-300 hover:bg-zinc-900/40 backdrop-blur-md'>
+      <a href="" className='resume tooltipParent relative top-[-25vh] social flex justify-center items-center gap-2 py-2 px-4 rounded-full transition-all ease-out duration-300 hover:bg-zinc-900/40 border border-zinc-700 backdrop-blur-md'>
         <span className='text-zinc-300 font-[Gilroy] tracking-tighter text-xl'>Resume</span>
         <RiArrowRightUpLine
           size={24}

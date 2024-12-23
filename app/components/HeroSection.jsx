@@ -4,9 +4,12 @@ import gsap from 'gsap'
 import React, { useRef } from 'react'
 import ScrollDown from './ScrollDown'
 import { RiMapPin2Line } from '@remixicon/react'
+import Image from 'next/image'
+import hand from '../assets/hand.svg'
 
 const HeroSection = () => {
     const ref = useRef();
+    const Hand = useRef();
     const greenRef = useRef();
     const availRef = useRef();
     useGSAP(() => {
@@ -15,6 +18,7 @@ const HeroSection = () => {
             y: 100,
             duration: 0.5,
             stagger: 0.1,
+            rotate : 15,
             delay: 1.5
         })
         tl.from(greenRef.current, {
@@ -66,8 +70,25 @@ const HeroSection = () => {
             }, index * 10);
         });
     }
+    const moveHand = () => {
+        // Ensure Hand.current is not null before attempting to animate
+        if (Hand.current) {
+            gsap.to(Hand.current, {
+                keyframes : [
+                    {rotate : 0},
+                    {rotate : 20},
+                    { rotate : -20},
+                    { rotate : 20},
+                    { rotate : 0}
+                ],
+                ease: "linear",
+                duration : 1
+            });
+        }
+    }
+
     return (
-        <div className='relative w-full z-[9999] pt-[45vh]
+        <div  className='relative w-full z-[9999] pt-[45vh]
          flex flex-col justify-center items-start px-[5vw]'>
             <div className='absolute w-full bg-gradient-to-t h-full to-[#ffffff24] from-[#ffffff04] top-[-10%] rounded-b-full left-1/2 -translate-x-1/2 blur-3xl '></div>
             <div className='relative z-[9999] py-[5vh] flex items-center gap-1'>
@@ -77,11 +98,13 @@ const HeroSection = () => {
                 </div>
                 <h1 ref={availRef} className='text-zinc-300/80 bg-zinc-700/40 backdrop-blur px-4 py-1 rounded-full tracking-tighter origin-bottom-left'>Available for Work</h1>
             </div>
-            <h1 className='relative text-[4.4vmax] leading-none font-semibold select-none'>
+            <h1 onMouseEnter={moveHand} className='relative text-[4.4vmax] leading-none font-semibold select-none'>
                 {
                     "Hi, I'm Vijay Ram — I Build interactive fullstack Websites and Applications.".split(" ").map((item, index) => (
                         <div className='inline-block overflow-hidden ' key={index}><span className={`span [text-shadow:_0px_0px_30px_rgb(255_255_255_/_20%)] inline-block pr-[1.2vmax]  py-[0.7vmin] font-[Gilroy]  bg-gradient-to-b from-zinc-300 to-zinc-400 capitalize text-transparent bg-clip-text tracking-tighter `}>
-                            {item === " " ? "\u00A0" : item}
+                            {item === " " ? "\u00A0" : item == "Hi," ? <div className='flex items-end'><span className='pr-2 inline-block'>Hi </span><div  ref={Hand} className='inline-block w-[4vmax]'>
+                                <Image src={hand} width={40} height={40} alt='hand' className='inline-block w-full' />
+                            </div>,</div> : item }
                         </span></div>
                     ))
                 }

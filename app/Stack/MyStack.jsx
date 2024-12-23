@@ -16,7 +16,7 @@ const MyStack = () => {
     <div id='stack' className='px-[5vw] py-[15vh] flex flex-col justify-center items-start'>
       <Title title="My Current Stack" />
       <p className='text-xl py-3 text-zinc-500 tracking-tighter'>I'm proficient in a range of modern technologies that empower me to build highly functional solutions. These are some of my main technologies.</p>
-      <div className='w-full flex justify-center gap-4 pt-6 items-center flex-wrap'>
+      <div className='w-full flex justify-center gap-6 pt-6 items-center flex-wrap'>
         {
             [
                 {

@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { motion } from 'framer-motion'
 const Stack = ({title , desc , url , bgColor}) => {
   return (
-    <div className='  h-[80px] w-[300px] items-center flex gap-4 rounded-xl border border-zinc-800 hover:bg-zinc-800 transition-all ease-out duration-500 bg-[#151515] px-2 relative py-4 overflow-hidden'>
+    <motion.div initial={{scale : 1}} whileHover={{scale : [1.15,1,1.05]}} className='  h-[80px] w-[300px] items-center flex gap-4 rounded-xl border border-zinc-800 hover:bg-zinc-800 transition-all ease-out duration-500 bg-[#151515] px-2 relative py-4 overflow-hidden'>
       <motion.div initial={{x : "-100%"}} animate={{x: "150%"}} transition={{duration : 2 , repeat : Infinity , repeatDelay : 2 }} className='absolute w-full h-[200%] '>
         <div className=' bg-gradient-to-r from-[#151515] to-[#151515] via-zinc-800 blur-xl rotate-[30deg] rounded-2xl w-[40px] h-full'></div>
       </motion.div>
@@ -18,7 +18,7 @@ const Stack = ({title , desc , url , bgColor}) => {
         </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   )
 }
 
