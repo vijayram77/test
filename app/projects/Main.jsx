@@ -246,14 +246,14 @@ export default function Main({ id }) {
         <div className="relative flex flex-col items-center justify-start mx-auto lg:w-[65vw] px-4">
           <div className='flex justify-between items-start w-full'>
             <div className=''>
-              <motion.div onViewportEnter={() => { gsap.to(".project-title",{top : "0px"})}} viewport={{once : true}}  className='overflow-hidden'>
-            <h1 className="text-[7vmax] relative top-[200px] project-title leading-none flex flex-col justify-center items-start tracking-tighter text-transparent font-semibold [text-shadow:_0px_0px_40px_rgb(255_255_255_/_20%)] text-zinc-200">{Data[data_id].Title}</h1>
+              <motion.div onViewportEnter={() => { gsap.to(".project-title",{top : "0px" , duration : 0.7})}} viewport={{once : true}}  className='overflow-hidden'>
+            <h1 className="text-[7vmax] relative top-[200px] project-title leading-none flex flex-col justify-center items-start tracking-tighter text-transparent font-semibold [text-shadow:_0px_0px_40px_rgb(255_255_255_/_5%)] text-zinc-200">{Data[data_id].Title}</h1>
               </motion.div>
             <p className="text-zinc-400 leading-none text-lg mb-6 mt-2 pl-4">{Data[data_id].date}</p>
             </div>
             <motion.a whileHover={{scale: [1,1.1,0.9,1]}} href={Data[data_id].live} target='blank'><FiArrowUpRight className='text-[7vmax] text-zinc-200 hover:text-[#000000] cursor-pointer rounded-full hover:bg-zinc-300 transition-all ease-out duration-500 p-[1vw]' /></motion.a>
           </div>
-          <div className="relative w-full">
+          <motion.div initial={{y : 150 , opacity : 0}} animate={{y : 0 , opacity : 1}} transition={{duration : 1 , delay : 0.2 }} className="relative w-full">
             <Image
               width={1536}
               height={1000}
@@ -261,7 +261,7 @@ export default function Main({ id }) {
               alt="Stadia Bluetooth Interface"
               className="rounded-lg pointer-events-none select-none"
             />
-          </div>
+          </motion.div>
           {
             Data[data_id].categories
               .map((section, index) => (

@@ -22,11 +22,15 @@
   font-family: Degular;
   src : url('./fonts/Degular.ttf')
 }
+@font-face{
+  font-family: Gloock;
+  src : url('./fonts/Gloock-Regular.ttf')
+}
 *{
   font-family: JaFont;
 }
 .project:hover .image{
-  transform: translateY(-10px);
+  transform: translateY(-20px);
 }
 .social-first:hover>.icon{
   animation: rotate ease-in-out 0.5s ;
@@ -41,7 +45,7 @@
   opacity: 1;
 }
 .project:hover .icon{
-  margin-right: 0vw;
+  margin-right: 0;
 } 
 @keyframes rotate{
   0%{
