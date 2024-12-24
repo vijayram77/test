@@ -97,13 +97,13 @@ const HeroSection = () => {
                 </div>
                 <h1 ref={availRef} className='text-zinc-300/80 bg-zinc-700/40 backdrop-blur px-4 py-1 rounded-full tracking-tighter origin-bottom-left'>Available for Work</h1>
             </div>
-            <h1 onMouseEnter={moveHand} className='relative text-[4.4vmax] leading-none font-semibold select-none'>
+            <h1 onMouseEnter={moveHand} className='relative text-[4vmax] leading-none font-semibold select-none'>
                 {
-                    "Hi, I'm Vijay Ram — a Creative Fullstack Developer Crafting Dynamic Websites.".split(" ").map((item, index) => (
-                        <div className='inline-block overflow-hidden ' key={index}><span className={`span [text-shadow:_0px_0px_30px_rgb(255_255_255_/_10%)] inline-block pr-[1.2vmax]  py-[0.7vmin] font-[Gilroy]  bg-gradient-to-b from-zinc-300 to-zinc-400 capitalize text-transparent bg-clip-text tracking-tighter `}>
+                    "Hi, I'm Vijay Ram — 19 year old Creative Fullstack Developer Crafting Dynamic Websites.".split(" ").map((item, index) => (
+                        <div className='inline-block overflow-hidden ' key={index}><span className={`span [text-shadow:_0px_0px_30px_rgb(255_255_255_/_10%)] inline-block pr-[0.7vmax]  py-[0.7vmin] font-[Gilroy]  bg-gradient-to-b from-zinc-100 to-zinc-400 capitalize text-transparent bg-clip-text tracking-tighter `}>
                             {item === " " ? "\u00A0" : item == "Hi," ? <div className='flex items-end'><span className='pr-2 inline-block'>Hi </span><div  ref={Hand} className='inline-block w-[4vmax]'>
                                 <Image src={hand} width={40} height={40} alt='hand' className='inline-block w-full' />
-                            </div>,</div> : item == "Creative" || item == "Fullstack" || item == "Developer" ? <i className='inline-block [text-shadow:_0px_0px_20px_rgb(255_255_255_/_50%)] tracking-normal font-light font-[Gloock] '>{item}</i> : item }
+                            </div>,</div> : item == "Creative" || item == "Fullstack" || item == "Developer" ? <i className='inline-block [text-shadow:_0px_0px_30px_rgb(255_255_255_/_40%)] tracking-normal font-light font-[Gloock] '>{item}</i> : item }
                         </span></div>
                     ))
                 }

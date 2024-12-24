@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 const ProjectsTitle = ({title}) => {
 
   return (
-    <div className=' w-full mb-[5vh] select-none flex gap-[1vmax] '>
+    <div className=' w-full mb-[5vh] select-none flex gap-[0.5vmax] '>
           
           {
             title.split(" ").map((item , index) => (

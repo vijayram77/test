@@ -27,7 +27,7 @@ const Project = ({ title, desc, href, src, bgColor, date, tools }) => {
                 >
                     <div className="absolute top-0 w-[100%] left-1/2 -translate-x-1/2 h-[1px] bg-gradient-to-r from-zinc-900 via-zinc-500 to-zinc-900" />
                     <div ref={gradientRef} className={`absolute md:opacity-0 top-0 w-[100%] left-1/2 -translate-x-1/2 h-full bg-gradient-to-t from-[#101010] ${bgColor == "#194A69" ? " to-[#194A69] " : "to-[#3D2B74] "} `} />
-                    <div className="absolute top-0 w-[100%] left-1/2 -translate-x-1/2 h-full bg-gradient-to-r from-[#202020b1] to-[#202020b1] via-transparent " />
+                    <div className="absolute top-0 w-[100%] left-1/2 -translate-x-1/2 h-full bg-gradient-to-r from-[#202020ad] to-[#202020ad] via-[#20202057] " />
                     <div className="p-6 relative flex justify-between items-start">
                         <div className="">
                             <h2 className="bg-gradient-to-b [text-shadow:_0px_0px_15px_rgb(255_255_255_/_15%)] from-zinc-300 to-zinc-300/95 text-transparent bg-clip-text text-3xl md:text-2xl leading-none py-1 font-[Nunito] tracking-tighter capitalize font-semibold mb-2">
