@@ -1,19 +1,35 @@
 "use client"
-import React from 'react'
-import { motion } from 'framer-motion';
+import React, { useRef } from 'react'
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/all';
 
-const ProjectsTitle = ({title}) => {
+const Title = ({title}) => {
+  const ref = useRef();
+  gsap.registerPlugin(ScrollTrigger)
+  useGSAP(() => {
+        gsap.from(title == "My Current Stack" ? ".stacktitle" : title == "Recent Projects" ?  ".projectstitle" : ".workedu", {
+            y: 150,
+            duration: 0.5,
+            stagger: 0.2,
+            rotate : 15,
+            scrollTrigger : {
+              trigger : ref.current,
+              start : "top 90%"
+            }
+        })
+  })
 
   return (
-    <div className=' w-full mb-[5vh] select-none flex gap-[0.5vmax] '>
+    <div ref={ref} className={` w-full mb-[5vh] select-none flex gap-[0.7vmax] overflow-hidden flex-wrap `}>
           
           {
             title.split(" ").map((item , index) => (
-              <motion.h1 key={index} initial={{y : 100 , opacity : 0}} whileInView={{y : 0 , opacity : 1}} viewport={{once : true }} transition={{ duration : 0.5 , delay : index*0.2 }} className='text-5xl md:text-7xl font-[Gilroy] pr-[0.2vmax] py-2 font-bold inline-block bg-gradient-to-b from-zinc-300 to-zinc-400 capitalize text-transparent bg-clip-text tracking-tighter whitespace-nowrap'>{item}</motion.h1>
+              <h1 key={index} className={`${title == "My Current Stack" ? "stacktitle" : title == "Recent Projects" ?  "projectstitle" : "workedu" } ${item == "Education" ? "font-[Gloock] italic from-zinc-400 to-zinc-400" : "font-[Gilroy] font-bold from-zinc-100 to-zinc-400"}  text-5xl md:text-7xl  pr-[0.4vmax] py-2 inline-block bg-gradient-to-b capitalize text-transparent bg-clip-text tracking-tighter whitespace-nowrap`}>{item}</h1>
             ))
           }
     </div>
   )
 }
 
-export default ProjectsTitle
+export default Title
