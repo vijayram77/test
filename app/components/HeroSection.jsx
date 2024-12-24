@@ -99,11 +99,11 @@ const HeroSection = () => {
             </div>
             <h1 onMouseEnter={moveHand} className='relative text-[4.4vmax] leading-none font-semibold select-none'>
                 {
-                    "Hi, I'm Vijay Ram — I Build interactive fullstack Websites and Applications.".split(" ").map((item, index) => (
+                    "Hi, I'm Vijay Ram — a Creative Fullstack Developer Crafting Dynamic Websites.".split(" ").map((item, index) => (
                         <div className='inline-block overflow-hidden ' key={index}><span className={`span [text-shadow:_0px_0px_30px_rgb(255_255_255_/_10%)] inline-block pr-[1.2vmax]  py-[0.7vmin] font-[Gilroy]  bg-gradient-to-b from-zinc-300 to-zinc-400 capitalize text-transparent bg-clip-text tracking-tighter `}>
                             {item === " " ? "\u00A0" : item == "Hi," ? <div className='flex items-end'><span className='pr-2 inline-block'>Hi </span><div  ref={Hand} className='inline-block w-[4vmax]'>
                                 <Image src={hand} width={40} height={40} alt='hand' className='inline-block w-full' />
-                            </div>,</div> : item == "fullstack" || item == "Websites" ? <i className='inline-block [text-shadow:_0px_0px_30px_rgb(255_255_255_/_50%)] tracking-normal font-light font-[Gloock] '>{item}</i> : item }
+                            </div>,</div> : item == "Creative" || item == "Fullstack" || item == "Developer" ? <i className='inline-block [text-shadow:_0px_0px_20px_rgb(255_255_255_/_50%)] tracking-normal font-light font-[Gloock] '>{item}</i> : item }
                         </span></div>
                     ))
                 }
