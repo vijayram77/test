@@ -19,19 +19,24 @@ const HeroSection = () => {
             duration: 0.5,
             stagger: 0.1,
             rotate : 15,
-            delay: 1.5
+            delay: 8.4
         })
-        tl.from(greenRef.current, {
+        .from(".lightDiv", {
+            top: "-100%",
+            duration: 1,
+            ease: "elastic.out"
+        })
+        .from(greenRef.current, {
             scale: 0,
             duration: 0.5,
             ease: "elastic.out"
         })
-        tl.from(availRef.current, {
+        .from(availRef.current, {
             opacity: 0,
             duration: 2,
             ease: "elastic.out"
         })
-        tl.to(availRef.current, {
+        .to(availRef.current, {
             rotate: 15,
             duration: 2,
             delay: 1.5,
@@ -89,7 +94,7 @@ const HeroSection = () => {
     return (
         <div  className='relative w-full z-[9999] pt-[40vh]
          flex flex-col justify-center items-start px-[5vw]'>
-            <div className='absolute w-full bg-gradient-to-t h-full to-[#ffffff24] from-[#ffffff04] top-[-10%] rounded-b-full left-1/2 -translate-x-1/2 blur-3xl '></div>
+            <div className='absolute lightDiv w-full bg-gradient-to-t h-full to-[#ffffff24] from-[#ffffff04] top-[-10%] rounded-b-full left-1/2 -translate-x-1/2 blur-3xl '></div>
             <div className='relative z-[9999] py-[5vh] flex items-center gap-1'>
                 <div ref={greenRef} className='w-4 h-4 flex justify-center items-center relative'>
                     <div className='bg-green-900 absolute w-full h-full rounded-full blur-sm'></div>
@@ -99,7 +104,7 @@ const HeroSection = () => {
             </div>
             <h1 onMouseEnter={moveHand} className='relative text-[4vmax] leading-none font-semibold select-none'>
                 {
-                    "Hi, I'm Vijay Ram — 19 year old Creative Fullstack Developer Crafting Dynamic Web Experiences.".split(" ").map((item, index) => (
+                    "Hi, I'm Vijay Ram — Creative Fullstack Developer Crafting Dynamic Web Experiences.".split(" ").map((item, index) => (
                         <div className='inline-block overflow-hidden ' key={index}><span className={`span [text-shadow:_0px_0px_30px_rgb(255_255_255_/_10%)] inline-block pr-[0.7vmax]  py-[0.7vmin] font-[Gilroy]  bg-gradient-to-b from-zinc-300 to-zinc-400 capitalize text-transparent bg-clip-text tracking-tighter `}>
                             {item === " " ? "\u00A0" : item == "Hi," ? <div className='flex items-end'><span className='pr-2 inline-block'>Hi </span><div  ref={Hand} className='inline-block w-[4vmax]'>
                                 <Image src={hand} width={40} height={40} alt='hand' className='inline-block w-full' />

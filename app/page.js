@@ -10,6 +10,7 @@ import { useGSAP } from '@gsap/react'
 import gsap, { Power4 } from 'gsap'
 import MyStack from './Stack/MyStack'
 import Work_Education from './Work-Education/Work-Education'
+import Loading from './components/Loading'
 
 const page = () => {
   const lenisRef = useRef(null); 
@@ -38,6 +39,7 @@ const page = () => {
       opacity: 0,
       y: -200,
       duration: 1,
+      delay : 8.4 ,
       ease: Power4
     })
 
@@ -53,6 +55,7 @@ const page = () => {
   };
   return (
     <div className='relative w-full overflow-hidden min-h-[100svh] bg-[#000000]'>
+
       {/* NavBar Start */}
       <div className='fixed z-[99999] left-1/2 -translate-x-1/2 w-full py-[5vh] px-[2vmax] flex justify-between items-center'>
         <Logo />
@@ -78,6 +81,7 @@ const page = () => {
       </div>
       {/* NavBar End */}
 
+      <Loading />
       <Landing />
       <MyStack />
       <Projects />
