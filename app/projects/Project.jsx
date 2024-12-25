@@ -36,6 +36,7 @@ const Project = ({ title, desc, href, src, bgColor, date, tools }) => {
                             <p className="bg-gradient-to-b w-[95%] [text-shadow:_0px_0px_15px_rgb(255_255_255_/_15%)] from-zinc-400 to-zinc-400/95 text-transparent bg-clip-text leading-none text-base font-[Nunito] tracking-tighter capitalize">
                                 <span className="text-zinc-300/90 font-semibold">{date}</span>{desc}
                             </p>
+                            
                         </div>
                         <div className="w-[15%] pr-[1vmax] flex justify-end icon  transition-all ease-out duration-500 ">
                             <IoMdArrowForward className="text-4xl hover:-rotate-45  text-zinc-300  transition-all ease-out duration-500 " />

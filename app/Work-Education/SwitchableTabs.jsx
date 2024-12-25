@@ -56,7 +56,7 @@ const SwitchableTabs = () => {
       </div>
 
       {/* Tab Content */}
-      <div className="bg-zinc-900 rounded-lg shadow-md p-4 md:p-6 text-gray-200 relative overflow-hidden">
+      <div className="bg-[#151515] rounded-lg shadow-md p-4 md:p-6 text-gray-200 relative overflow-hidden">
         <div ref={ref} className="flex">
           {/* Work Tab Content */}
           <div className="min-w-full px-[5vw] py-2 flex flex-col gap-6">
