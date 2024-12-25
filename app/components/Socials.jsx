@@ -10,7 +10,7 @@ const Socials = () => {
     gsap.to('.social', {
       top: "0vh",
       duration: 1.5,
-      delay : 8.5 ,
+      delay : 7.5 ,
       stagger: 0.1,
       ease: "none"
     })

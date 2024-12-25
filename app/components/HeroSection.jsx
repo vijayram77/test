@@ -19,7 +19,7 @@ const HeroSection = () => {
             duration: 0.5,
             stagger: 0.1,
             rotate : 15,
-            delay: 8.4
+            delay: 1
         })
         .from(".lightDiv", {
             top: "-100%",

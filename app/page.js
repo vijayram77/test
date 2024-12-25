@@ -39,7 +39,6 @@ const page = () => {
       opacity: 0,
       y: -200,
       duration: 1,
-      delay : 8.4 ,
       ease: Power4
     })
 
@@ -81,7 +80,6 @@ const page = () => {
       </div>
       {/* NavBar End */}
 
-      <Loading />
       <Landing />
       <MyStack />
       <Projects />
