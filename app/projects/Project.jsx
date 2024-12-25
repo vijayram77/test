@@ -29,7 +29,7 @@ const Project = ({ title, desc, href, src, bgColor, date, tools }) => {
                     <div ref={gradientRef} className={`absolute md:opacity-0 top-0 w-[100%] left-1/2 -translate-x-1/2 h-full bg-gradient-to-t from-[#101010] ${bgColor == "#194A69" ? " to-[#194A69] " : "to-[#3D2B74] "} `} />
                     <div className="absolute top-0 w-[100%] left-1/2 -translate-x-1/2 h-full bg-gradient-to-r from-[#202020ad] to-[#202020ad] via-[#20202057] " />
                     <div className="p-6 relative flex justify-between items-start">
-                        <div className="">
+                        <div className="w-[85%]">
                             <h2 className="bg-gradient-to-b [text-shadow:_0px_0px_15px_rgb(255_255_255_/_15%)] from-zinc-300 to-zinc-300/95 text-transparent bg-clip-text text-3xl md:text-2xl leading-none py-1 font-[Nunito] tracking-tighter capitalize font-semibold mb-2">
                                 {title}
                             </h2>
@@ -37,8 +37,8 @@ const Project = ({ title, desc, href, src, bgColor, date, tools }) => {
                                 <span className="text-zinc-300/90 font-semibold">{date}</span>{desc}
                             </p>
                         </div>
-                        <div>
-                            <IoMdArrowForward className="text-4xl icon transition-all ease-out duration-500 hover:-rotate-45 mr-[1vmax] text-zinc-300" />
+                        <div className="w-[15%] pr-[1vmax] flex justify-end icon  transition-all ease-out duration-500 ">
+                            <IoMdArrowForward className="text-4xl hover:-rotate-45  text-zinc-300  transition-all ease-out duration-500 " />
                         </div>
                     </div>
                     <div className="w-full flex gap-4 flex-wrap items-center px-6 pb-4">
